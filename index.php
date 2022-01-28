@@ -75,6 +75,7 @@
             request.onload= function() {
                 console.log(this.responseText);
                 document.getElementById('chat_box').innerHTML+=this.responseText;
+                document.getElementById('message').value='';
             }
             request.open('POST', "ajax.php");
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
