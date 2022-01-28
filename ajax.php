@@ -2,6 +2,11 @@
 session_start();
 $conn = new  mysqli('localhost', 'root', '78188124', 'chatBot');
 if (isset($_POST['message']) && !empty($_POST['message'])) {
+?>
+ <div class="user-pm">
+<?php echo $_POST['message']; ?>
+</div>
+<?php
     $result_parents_id = $conn->query("SELECT * FROM bot where title LIKE '%" . $_POST['message'] . "%'");
     if ($result_parents_id->num_rows > 0) :
         while ($row_parents_id = $result_parents_id->fetch_assoc()) :
