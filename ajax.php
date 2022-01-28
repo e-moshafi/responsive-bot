@@ -1,4 +1,5 @@
 <?php
+session_start();
 $conn = new  mysqli('localhost','root','78188124','chatBot');
 if(isset($_POST['message']) && !empty($_POST['message'])){
 
@@ -11,6 +12,7 @@ can i help you ?
 What's your problem?
 </div>
 <?php
+$_SESSION['parents_id']=0;
 $result=$conn->query("SELECT * FROM bot where parents_id=0");
 while ($row = $result->fetch_assoc()) :
     ?>
