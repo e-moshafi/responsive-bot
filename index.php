@@ -70,6 +70,17 @@
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send();
         }
+        function send_pm() {
+            // const request=new XMLHttpRequest();
+            // request.onload= function() {
+            //     console.log(this.responseText);
+            //     document.getElementById('chat_box').innerHTML=+this.responseText;
+            // }
+            // request.open('POST', "ajax.php");
+            // request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            // request.send('message='+document.getElementById('chat_box').value);
+            console.log(document.getElementById('chat_box').value);
+        }
     </script>
 </head>
 
