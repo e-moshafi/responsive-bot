@@ -63,7 +63,7 @@
             
             const request=new XMLHttpRequest();
             request.onload= function() {
-                console.log(this.responseText);
+               // console.log(this.responseText);
                 document.getElementById('chat_box').innerHTML=this.responseText;
             }
             request.open('POST', "ajax.php");
@@ -71,15 +71,15 @@
             request.send();
         }
         function send_pm() {
-            // const request=new XMLHttpRequest();
-            // request.onload= function() {
-            //     console.log(this.responseText);
-            //     document.getElementById('chat_box').innerHTML=+this.responseText;
-            // }
-            // request.open('POST', "ajax.php");
-            // request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            // request.send('message='+document.getElementById('chat_box').value);
-            console.log(document.getElementById('chat_box').value);
+            const request=new XMLHttpRequest();
+            request.onload= function() {
+                console.log(this.responseText);
+                document.getElementById('chat_box').innerHTML+=this.responseText;
+            }
+            request.open('POST', "ajax.php");
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send('message='+document.getElementById('message').value);
+           // console.log(document.getElementById('message').value);
         }
     </script>
 </head>
@@ -96,7 +96,7 @@
         </div>
         <div class="send-box">
             <input type="text" id="message">
-            <button type="button" class="btn-send">send</button>
+            <button type="button" class="btn-send" onclick="send_pm()">send</button>
         </div>
 
     </div>
