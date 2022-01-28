@@ -1,72 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chat_bot</title>
     <style type="text/css">
-        .container-chat{
+        .container-chat {
             width: 700px;
             height: 400px;
-            padding:10px;
+            padding: 10px;
             border: 2px solid #000;
-            border-radius:5px;
+            border-radius: 5px;
         }
-        .chat-box{
+
+        .chat-box {
             width: 100%;
             height: 300px;
             border: 1px solid #000;
-            border-radius:5px
+            border-radius: 5px
         }
-        .send-box{
+
+        .send-box {
             width: 100%;
             height: 50px;
         }
-        #message,.btn-send {
+
+        #message,
+        .btn-send {
             padding: 10px;
             border-radius: 5px;
             margin-top: 5px;
             font-size: 20px;
             float: left;
         }
-        #message{
+
+        #message {
             width: 80%;
         }
-        .bot-pm , .user-pm{
+
+        .bot-pm,
+        .user-pm {
             border: 1px solid #000;
-            border-radius:5px;
-            min-height:10px;
-            height:auto;
-            width:300px;
-            padding:10px
+            border-radius: 5px;
+            min-height: 10px;
+            height: auto;
+            width: 300px;
+            padding: 10px
         }
-        .bot-pm{
-            float:left;
+
+        .bot-pm {
+            float: left;
         }
-        .user-pm{
-            float:right;
+
+        .user-pm {
+            float: right;
         }
     </style>
     <script>
-        
-        </script>
+        window.onload = function() {
+            
+            const request=new XMLHttpRequest();
+            request.onload= function() {
+                console.log(this.responseText);
+                document.getElementById('chat_box').innerHTML=this.responseText;
+            }
+            request.open('POST', "ajax.php");
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send();
+        }
+    </script>
 </head>
+
 <body>
     <div class="container-chat">
-        <div class="chat-box">
-            <div class="bot-pm">
+        <div class="chat-box" id="chat_box">
+            <!-- <div class="bot-pm">
 
             </div>
             <div class="user-pm">
-                
-           </div>
+
+            </div> -->
         </div>
         <div class="send-box">
-             <input type="text" id="message">
+            <input type="text" id="message">
             <button type="button" class="btn-send">send</button>
         </div>
 
     </div>
 </body>
+
 </html>
