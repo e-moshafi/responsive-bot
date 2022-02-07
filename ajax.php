@@ -1,6 +1,7 @@
 <?php
+require_once "config.php";
 session_start();
-$conn = new  mysqli('localhost', 'root', '78188124', 'chatBot');
+$conn = new  mysqli(host, username, password, db);
 if (isset($_POST['message']) && !empty($_POST['message'])) {
 ?>
     <article class="msg-container msg-self">
