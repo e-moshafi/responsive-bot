@@ -34,9 +34,8 @@
         }
 
         .chatbox {
-            width: 300px;
-            height: 400px;
-            max-height: 400px;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -205,12 +204,6 @@
             request.send('message=' + document.getElementById('message').value);
             // console.log(document.getElementById('message').value);
         }
-        $('.chat-input input').keyup(function(e) {
-            if ($(this).val() == '')
-                $(this).removeAttr('good');
-            else
-                $(this).attr('good', '');
-        });
     </script>
 </head>
 
